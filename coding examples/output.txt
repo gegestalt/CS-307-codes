@@ -1,0 +1,2 @@
+       -A, --almost-all
+              do not list implied . and ..
