@@ -1,2 +1,3 @@
-       -A, --almost-all
-              do not list implied . and ..
+
+       -B, --ignore-backups
+         do not list implied . and ..
