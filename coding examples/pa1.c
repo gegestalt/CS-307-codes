@@ -9,21 +9,15 @@
 
 int main() {
 
-    // Main "SHELL" process
-    printf("I'm SHELL process, with PID: %d - Main command is: man -P cat ls | grep -e -A -A 1 -m 1 \n", getpid());
     
-    // Creates file descriptor and pipes each other
+    printf("I'm SHELL process, with PID: %d - Main command is: man -P cat ls | grep -e -A -A 1 -m 1 \n", getpid());
+    //file descriptor creation.
     int fd[2]; pipe(fd);
-
-    // Creates a child process for MAN process
+    //child for man commmand 
     int pid1 = fork();
-
-    // Make sure that the fork is successful 
     if (pid1 < 0) {
         exit(1);
     } 
-    
-    // Child "MAN" process
     else if (pid1 == 0) {
 
         printf("I’m MAN process, with PID: %d - My command is: man -P cat ls \n", getpid());
@@ -60,14 +54,14 @@ int main() {
             execlp("grep", "grep", "-e", "-A", "-A", "1", "-m", "1", NULL);
         } 
 
-        // Returns to main "SHELL" process
         else{
 
-            // Waits for child processes and prints last message
+            //wait for child and print last msg.
             waitpid(pid1, NULL, 0); 
             waitpid(pid2, NULL, 0);            
             printf("I’m SHELL process, with PID: %d - execution is completed, you can find the results in output.txt \n", getpid());
         }
     }
     return 0;
+    
 }
