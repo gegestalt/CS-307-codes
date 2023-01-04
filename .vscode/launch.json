@@ -5,17 +5,13 @@
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
-      "args": [
-        ""
-      ],
+      "args": [],
       "stopAtEntry": false,
-      "cwd": "/workspace/CS-307-codes/coding examples",
-      "environment": [],
-      "program": "/workspace/CS-307-codes/coding examples/build/Debug/outDebug",
-      "internalConsoleOptions": "openOnSessionStart",
+      "externalConsole": false,
+      "cwd": "/workspace/CS-307-codes/pA-4",
+      "program": "/workspace/CS-307-codes/pA-4/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "/usr/bin/gdb",
-      "externalConsole": false,
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
