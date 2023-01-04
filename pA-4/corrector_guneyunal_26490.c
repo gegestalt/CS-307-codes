@@ -40,7 +40,7 @@ const char * filename_extension(const char *filename) {
     return dot + 1;
 }
 
-void corrector(char * path){
+void correction(char * path){
     DIR * srcdir = opendir(path);
     assert(srcdir != NULL);
     struct dirent * d;
@@ -60,7 +60,7 @@ void corrector(char * path){
         if (S_ISDIR(st.st_mode)){
             char * dir = concat(path,d->d_name);
             dir = concat(dir,"/");
-            corrector(dir);
+            correction(dir);
         }
 
         if (strcmp(filename_extension(d->d_name), "txt") == 0 && (strcmp(d->d_name, "database.txt") != 0 || strcmp(path,"./") != 0)){
@@ -137,7 +137,7 @@ int main(int argc, char* argv[]){
     }
     
     fclose(dataFile);
-    corrector("./");
+    correction("./");
     
     return 0;
 }
